@@ -14,10 +14,10 @@ var money = prompt('Ваш бюджет на месяц?'),
 // ·      массив данных с доп. доходом - income (оставляем пока пустым)
 // ·      свойство savings (выставляем его как false)
 var appData = {
-    money: money,
+    budget: money,
     timeData: time,
     expenses: {},
-    optionalExpenses: null,
+    optionalExpenses: {},
     income: [],
     savings: false
 };
@@ -35,7 +35,5 @@ for (let i = 0; i < 2; i++) {
     appData.expenses[x] = y;
 }
 
-// Вывести на экран пользователя бюджет на 1 день (брать месяц за 30 дней, использовать alert)
-console.log(alert(appData.money/30));
-
-
+// Вывести на экран пользователя бюджет на 1 день (брать месяц за 30 дней, использовать console.log)
+console.log(appData.money/30);
