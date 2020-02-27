@@ -3,7 +3,7 @@
 // создать 2 переменные (money и time), которые будут получать данные от пользователя:
 // ·      Первая будет спрашивать "Ваш бюджет на месяц?"
 // ·      Вторая "Введите дату в формате YYYY-MM-DD"
-var money = prompt('Ваш бюджет на месяц?'),
+var money = +prompt('Ваш бюджет на месяц?'),
     time = prompt('Введите дату в формате YYYY-MM-DD');
 
 // Создать объект appData, который будет содержать такие данные
@@ -29,11 +29,57 @@ var appData = {
 // expenses: {
 // “ответ на первый вопрос” : “ответ на второй вопрос”
 // }
-for (let i = 0; i < 2; i++) {
-    let x = prompt('Введите обязательную статью расходов в этом месяце');
-    let y = prompt('Во сколько обойдется?');
-    appData.expenses[x] = y;
+for (let i = 0, x, y; i < 2; i++) {
+
+    x = prompt('Введите обязательную статью расходов в этом месяце');
+    y = prompt('Во сколько обойдется?');
+
+    if (x && y) {
+        appData.expenses[x] = y;
+    } else {
+        i--;
+    }
 }
 
+// let i = 0,
+//     x, y;
+// while (i < 2) {
+//     x = prompt('Введите обязательную статью расходов в этом месяце');
+//     y = prompt('Во сколько обойдется?');
+
+//     if (x && y) {
+//         appData.expenses[x] = y;
+//     } else {
+//         i--;
+//     }
+    
+//     i++;
+    
+// }
+
+// let i = 0,
+//     x, y;
+// do {
+//     x = prompt('Введите обязательную статью расходов в этом месяце');
+//     y = prompt('Во сколько обойдется?');
+
+//     if (x && y) {
+//         appData.expenses[x] = y;
+//         i++;
+//     }
+// } while (i < 2);
+
+
 // Вывести на экран пользователя бюджет на 1 день (брать месяц за 30 дней, использовать console.log)
-console.log(appData.money/30);
+appData.moneyPerDay = appData.budget/30;
+console.log(appData.moneyPerDay);
+
+if (appData.moneyPerDay < 350) {
+    console.log('Минимальный уровень достатка');
+} else if (appData.moneyPerDay > 350 && appData.moneyPerDay < 1500) {
+    console.log('Средний уровень достатка');
+} else if (appData.moneyPerDay > 1500) {
+    console.log('Высокий уровень достатка');
+} else {
+    console.log('Произошла ошибка');
+}
