@@ -69,6 +69,11 @@ var appData = {
             appData.monthIncome = save / 100 / 12 * percent;
             console.log('Доход в месяц с вашего депозита: ' + appData.monthIncome);
         }
+    },
+    chooseIncome: function() {
+        let items = prompt('Что принесет дополнительный доход? (Перечислите через запятую)', '');
+        appData.income = items.split(', ');
+        appData.income.sort();
     }
 };
 
@@ -79,9 +84,9 @@ var appData = {
 // expenses: {
 // “ответ на первый вопрос” : “ответ на второй вопрос”
 // }
-appData.chooseExpenses();
+// appData.chooseExpenses();
 
-appData.chooseOptExpenses();
+// appData.chooseOptExpenses();
 
 // let i = 0,
 //     x, y;
@@ -113,8 +118,10 @@ appData.chooseOptExpenses();
 
 
 // Вывести на экран пользователя бюджет на 1 день (брать месяц за 30 дней, использовать console.log)
-appData.detectDayBudget();
+// appData.detectDayBudget();
 
-appData.detectLevel();
+// appData.detectLevel();
 
-appData.checkSavings();
+// appData.checkSavings();
+
+appData.chooseIncome();
